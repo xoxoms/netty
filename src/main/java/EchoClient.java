@@ -29,7 +29,7 @@ public class EchoClient {
 
             // connect 메서드는 호출 결과를 ChannelFuture 객체로 반환한다. 이 객체를 통해 비동기 메서드의 처리 결과를 확인할 수 있다.
             ChannelFuture f = b.connect("localhost", 8888);
-            // sync 메서드는 future의 요청이 완료될때까지 대기한다. 요청이 실패하면 예뢰를 던진다.
+            // sync 메서드는 future의 요청이 완료될때까지 대기(블로킹)한다. 요청이 실패하면 예외를 던진다.
             f.sync();
 
             f.channel().closeFuture().sync();
